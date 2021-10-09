@@ -91,10 +91,10 @@ class BitcoinMainnet(AbstractNet):
     WIF_PREFIX = 204
     ADDRTYPE_P2PKH = 76
     ADDRTYPE_P2SH = 16
-    GENESIS = "00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6"
-    DEFAULT_PORTS = {'t': '50001', 's': '50002'}
+    GENESIS = "00000c0258d56de5d8f0c0066f2d24656498f0ebae5450a8944445bb209a24e0"
+    DEFAULT_PORTS = {'t': '1993', 's': '1993'}
     DEFAULT_SERVERS = read_json('servers.json', {})
-    CHECKPOINTS = read_json_gz('checkpoints.json.gz', [])
+    CHECKPOINTS = {} # read_json_gz('checkpoints.json.gz', [])
 
     XPRV_HEADERS = {
         'standard':    0x0488ade4,  # xprv
