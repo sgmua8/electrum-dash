@@ -18,7 +18,7 @@ fi
 # anti-virus false positives
 echo "Building PyInstaller bootloaders for $WINEARCH."
 
-cd "$WINEPREFIX/drive_c/electrum-dash"
+cd "$WINEPREFIX/drive_c/electrum-cintamani"
 rm -rf dist/pyinstaller/
 mkdir -p dist/pyinstaller/
 cd dist/pyinstaller
@@ -31,7 +31,7 @@ rm -fv PyInstaller/bootloader/Windows-*/run*.exe || true
 
 # add reproducible randomness. this ensures we build a different bootloader for each commit.
 # if we built the same one for all releases, that might also get anti-virus false positives
-echo -e "\nconst char *dash_electrum_tag" \
+echo -e "\nconst char *cintamani_electrum_tag" \
         " = \"tagged by Dash-Electrum@$ELECTRUM_COMMIT_HASH\";" \
         >> ./bootloader/src/pyi_main.c
 cd bootloader

@@ -7,7 +7,7 @@ CONTRIB="$PROJECT_ROOT/contrib"
 CONTRIB_APPIMAGE="$CONTRIB/build-linux/appimage"
 DISTDIR="$PROJECT_ROOT/dist"
 BUILDDIR="/var/build/appimage"
-APPDIR="$BUILDDIR/electrum-dash.AppDir"
+APPDIR="$BUILDDIR/electrum-cintamani.AppDir"
 CACHEDIR="$BUILDDIR/.cache/appimage"
 PIP_CACHE_DIR="$CACHEDIR/pip_cache"
 
@@ -18,7 +18,7 @@ SQUASHFSKIT_COMMIT="ae0d656efa2d0df2fcac795b6823b44462f19386"
 export GCC_STRIP_BINARIES="1"
 
 pushd $PROJECT_ROOT
-source $CONTRIB/dash/travis/electrum_dash_version_env.sh
+source $CONTRIB/cintamani/travis/electrum_cintamani_version_env.sh
 popd
 VERSION=$DASH_ELECTRUM_VERSION
 APPIMAGE="$DISTDIR/Dash-Electrum-$VERSION-x86_64.AppImage"
@@ -96,8 +96,8 @@ cp "/usr/lib/x86_64-linux-gnu/libzbar.so.0" "$APPDIR/usr/lib/libzbar.so.0"
 
 
 info "desktop integration."
-cp "$PROJECT_ROOT/electrum-dash.desktop" "$APPDIR/electrum-dash.desktop"
-cp "$PROJECT_ROOT/electrum_dash/gui/icons/electrum-dash.png" "$APPDIR/electrum-dash.png"
+cp "$PROJECT_ROOT/electrum-cintamani.desktop" "$APPDIR/electrum-cintamani.desktop"
+cp "$PROJECT_ROOT/electrum_cintamani/gui/icons/electrum-cintamani.png" "$APPDIR/electrum-cintamani.png"
 
 
 # add launcher

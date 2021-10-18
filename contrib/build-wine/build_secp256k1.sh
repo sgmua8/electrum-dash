@@ -6,7 +6,7 @@ export SECP256K1_REPO="https://github.com/bitcoin-core/secp256k1.git"
 export SECP256K1_COMMIT="dbd41db16a0e91b2566820898a3ab2d7dad4fe00"
 
 echo "Building secp256k1 for $WINEARCH."
-export PROJ_ROOT=$WINEPREFIX/drive_c/electrum-dash
+export PROJ_ROOT=$WINEPREFIX/drive_c/electrum-cintamani
 export DIST_DIR=$WINEPREFIX/drive_c/libsecp256k1
 
 cd $PROJ_ROOT
@@ -21,7 +21,7 @@ git fetch --depth 1 origin $SECP256K1_COMMIT
 git checkout -b pinned "${SECP256K1_COMMIT}^{commit}"
 
 # add reproducible randomness.
-export release_tag="\nconst char *dash_electrum_tag"
+export release_tag="\nconst char *cintamani_electrum_tag"
 export release_tag=${release_tag}" = \"tagged by Dash-Electrum@"
 export release_tag=${release_tag}"$ELECTRUM_COMMIT_HASH\";"
 echo -e ${release_tag} >> ./src/secp256k1.c

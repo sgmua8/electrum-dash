@@ -4,7 +4,7 @@
 .DS_Store
 build/
 dist/
-electrum_dash/locale/
+electrum_cintamani/locale/
 .devlocaltmp/
 *_trial_temp
 packages
@@ -21,10 +21,10 @@ bin/
 .coverage
 
 electrum_data/
-electrum_dash/gui/kivy/theming/light-0.png
-electrum_dash/gui/kivy/theming/light-1.png
-electrum_dash/gui/kivy/theming/light.atlas
-electrum_dash/gui/kivy/theming/atlas/light-0.png
-electrum_dash/gui/kivy/theming/atlas/light-1.png
-electrum_dash/gui/kivy/theming/atlas/light.atlas
+electrum_cintamani/gui/kivy/theming/light-0.png
+electrum_cintamani/gui/kivy/theming/light-1.png
+electrum_cintamani/gui/kivy/theming/light.atlas
+electrum_cintamani/gui/kivy/theming/atlas/light-0.png
+electrum_cintamani/gui/kivy/theming/atlas/light-1.png
+electrum_cintamani/gui/kivy/theming/atlas/light.atlas
 *.egg-info/

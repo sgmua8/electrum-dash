@@ -26,7 +26,7 @@ with open('contrib/requirements/requirements-hw.txt') as f:
     requirements_hw = f.read().splitlines()
 
 # load version.py; needlessly complicated alternative to "imp.load_source":
-version_spec = importlib.util.spec_from_file_location('version', 'electrum_dash/version.py')
+version_spec = importlib.util.spec_from_file_location('version', 'electrum_cintamani/version.py')
 version_module = version = importlib.util.module_from_spec(version_spec)
 version_spec.loader.exec_module(version_module)
 
@@ -46,8 +46,8 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
         else:
             usr_share = os.path.expanduser('~/.local/share')
     data_files += [
-        (os.path.join(usr_share, 'applications/'), ['electrum-dash.desktop']),
-        (os.path.join(usr_share, icons_dirname), ['electrum_dash/gui/icons/electrum-dash.png']),
+        (os.path.join(usr_share, 'applications/'), ['electrum-cintamani.desktop']),
+        (os.path.join(usr_share, icons_dirname), ['electrum_cintamani/gui/icons/electrum-cintamani.png']),
     ]
 
 extras_require = {
@@ -71,27 +71,27 @@ setup(
     install_requires=requirements,
     extras_require=extras_require,
     packages=[
-        'electrum_dash',
-        'electrum_dash.qrreader',
-        'electrum_dash.gui',
-        'electrum_dash.gui.qt',
-        'electrum_dash.gui.qt.qrreader',
-        'electrum_dash.gui.qt.qrreader.qtmultimedia',
-        'electrum_dash.plugins',
-    ] + [('electrum_dash.plugins.'+pkg) for pkg in find_packages('electrum_dash/plugins')],
+        'electrum_cintamani',
+        'electrum_cintamani.qrreader',
+        'electrum_cintamani.gui',
+        'electrum_cintamani.gui.qt',
+        'electrum_cintamani.gui.qt.qrreader',
+        'electrum_cintamani.gui.qt.qrreader.qtmultimedia',
+        'electrum_cintamani.plugins',
+    ] + [('electrum_cintamani.plugins.'+pkg) for pkg in find_packages('electrum_cintamani/plugins')],
     package_dir={
-        'electrum_dash': 'electrum_dash'
+        'electrum_cintamani': 'electrum_cintamani'
     },
     # Note: MANIFEST.in lists what gets included in the tar.gz, and the
     # package_data kwarg lists what gets put in site-packages when pip installing the tar.gz.
     # By specifying include_package_data=True, MANIFEST.in becomes responsible for both.
     include_package_data=True,
-    scripts=['electrum_dash/electrum-dash'],
+    scripts=['electrum_cintamani/electrum-cintamani'],
     data_files=data_files,
     description="Lightweight Dashpay Wallet",
     maintainer="akhavr",
     maintainer_email="akhavr@khavr.com",
     license="MIT License",
-    url="https://electrum.dash.org",
+    url="https://electrum.cintamani.org",
     long_description="""Lightweight Dashpay Wallet""",
 )

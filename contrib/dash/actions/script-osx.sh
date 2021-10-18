@@ -34,12 +34,12 @@ find . -name '*.po' -delete
 find . -name '*.pot' -delete
 
 cp contrib/osx/osx_actions.spec osx.spec
-cp contrib/dash/pyi_runtimehook.py .
-cp contrib/dash/pyi_tctl_runtimehook.py .
+cp contrib/cintamani/pyi_runtimehook.py .
+cp contrib/cintamani/pyi_tctl_runtimehook.py .
 
 pyinstaller --clean \
     -y \
-    --name electrum-dash-$DASH_ELECTRUM_VERSION.bin \
+    --name electrum-cintamani-$DASH_ELECTRUM_VERSION.bin \
     osx.spec
 
 sudo hdiutil create -fs HFS+ -volname "Dash Electrum" \

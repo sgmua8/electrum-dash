@@ -6,7 +6,7 @@ export X11_HASH_REPO="https://github.com/zebra-lucky/x11_hash.git"
 export X11_HASH_COMMIT="ecdf417847601ae74a3ed1a2b787c80a22264a3d"
 
 echo "Building x11_hash for $WINEARCH."
-export PROJ_ROOT=$WINEPREFIX/drive_c/electrum-dash
+export PROJ_ROOT=$WINEPREFIX/drive_c/electrum-cintamani
 export DIST_DIR=$WINEPREFIX/drive_c/x11_hash
 
 cd $PROJ_ROOT
@@ -21,7 +21,7 @@ git fetch --depth 1 origin $X11_HASH_COMMIT
 git checkout -b pinned "${X11_HASH_COMMIT}^{commit}"
 
 # add reproducible randomness.
-echo -e "\nconst char *dash_electrum_tag" \
+echo -e "\nconst char *cintamani_electrum_tag" \
         " = \"tagged by Dash-Electrum@$ELECTRUM_COMMIT_HASH\";" \
         >> ./x11hash.c
 

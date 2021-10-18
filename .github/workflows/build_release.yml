@@ -44,18 +44,18 @@ jobs:
       - name: Set outputs for pkg_ver
         id: set_vars
         run: |
-          source ./contrib/dash/travis/electrum_dash_version_env.sh
+          source ./contrib/cintamani/travis/electrum_cintamani_version_env.sh
           echo "::set-output name=pkg_ver::$(echo $DASH_ELECTRUM_VERSION)"
       - name: Prepare build
         env:
           DASH_ELECTRUM_VERSION: ${{ steps.set_vars.outputs.pkg_ver }}
         run: |
-          ./contrib/dash/actions/install-osx.sh
+          ./contrib/cintamani/actions/install-osx.sh
       - name: Build dmg
         env:
           DASH_ELECTRUM_VERSION: ${{ steps.set_vars.outputs.pkg_ver }}
         run: |
-          ./contrib/dash/actions/script-osx.sh
+          ./contrib/cintamani/actions/script-osx.sh
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
         env:
@@ -88,7 +88,7 @@ jobs:
       - name: Set outputs for pkg_ver, apk_ver, vercode, is_release
         id: set_vars
         run: |
-          source ./contrib/dash/travis/electrum_dash_version_env.sh
+          source ./contrib/cintamani/travis/electrum_cintamani_version_env.sh
           echo "::set-output name=pkg_ver::$(echo $DASH_ELECTRUM_VERSION)"
           echo "::set-output name=apk_ver::$(echo $DASH_ELECTRUM_APK_VERSION)"
           echo "::set-output name=vercode::$(echo $DASH_ELECTRUM_VERSION_CODE)"
@@ -101,7 +101,7 @@ jobs:
           DASH_ELECTRUM_VERSION_CODE: ${{ steps.set_vars.outputs.vercode }}
           IS_RELEASE: ${{ steps.set_vars.outputs.is_release }}
         run: |
-          ./contrib/dash/actions/install-linux-apk.sh
+          ./contrib/cintamani/actions/install-linux-apk.sh
       - name: Build apk
         if: ${{ steps.set_vars.outputs.is_release || matrix.is_mainnet[0] == 'false' }}
         env:
@@ -110,7 +110,7 @@ jobs:
           DASH_ELECTRUM_VERSION_CODE: ${{ steps.set_vars.outputs.vercode }}
           IS_RELEASE: ${{ steps.set_vars.outputs.is_release }}
         run: |
-          ./contrib/dash/actions/script-linux-apk.sh
+          ./contrib/cintamani/actions/script-linux-apk.sh
       - name: Upload Release Asset
         if: ${{ steps.set_vars.outputs.is_release || matrix.is_mainnet[0] == 'false' }}
         uses: actions/upload-release-asset@v1
@@ -132,18 +132,18 @@ jobs:
       - name: Set outputs for pkg_ver
         id: set_vars
         run: |
-          source ./contrib/dash/travis/electrum_dash_version_env.sh
+          source ./contrib/cintamani/travis/electrum_cintamani_version_env.sh
           echo "::set-output name=pkg_ver::$(echo $DASH_ELECTRUM_VERSION)"
       - name: Prepare build
         env:
           DASH_ELECTRUM_VERSION: ${{ steps.set_vars.outputs.pkg_ver }}
         run: |
-          ./contrib/dash/actions/install-linux.sh
+          ./contrib/cintamani/actions/install-linux.sh
       - name: Build Linux/Win
         env:
           DASH_ELECTRUM_VERSION: ${{ steps.set_vars.outputs.pkg_ver }}
         run: |
-          ./contrib/dash/actions/script-linux.sh
+          ./contrib/cintamani/actions/script-linux.sh
       - name: Upload sdist tar.gz Release Asset
         uses: actions/upload-release-asset@v1
         env:

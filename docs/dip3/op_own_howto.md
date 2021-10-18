@@ -6,7 +6,7 @@ Create a DIP3 masternode on a standard P2PKH wallet with the wizard.
    <image src="op_own/p2.png" width="800" /></p>
 
 Select service params and Owner/Voting/Payout addresses.
-The BLS private key should be saved to dash.conf of the masternode Dash Core node,
+The BLS private key should be saved to cintamani.conf of the masternode Dash Core node,
 with subsequent restart of the node.
 
 <p><image src="op_own/p3.png" width="800" />

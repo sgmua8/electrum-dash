@@ -15,7 +15,7 @@ rm -rf atlas_env
 popd
 
 # patch buildozer to support APK_VERSION_CODE env
-VERCODE_PATCH_PATH=/home/buildozer/build/contrib/dash/travis
+VERCODE_PATCH_PATH=/home/buildozer/build/contrib/cintamani/travis
 VERCODE_PATCH="$VERCODE_PATCH_PATH/read_apk_version_code.patch"
 
 DOCKER_CMD="pushd /opt/buildozer"
@@ -38,5 +38,5 @@ docker run --rm \
     --env APP_ANDROID_ARCH=$APP_ANDROID_ARCH \
     --env APK_VERSION_CODE=$DASH_ELECTRUM_VERSION_CODE \
     -v $(pwd):/home/buildozer/build \
-    -t zebralucky/electrum-dash-winebuild:Kivy40x bash -c \
+    -t zebralucky/electrum-cintamani-winebuild:Kivy40x bash -c \
     "$DOCKER_CMD"

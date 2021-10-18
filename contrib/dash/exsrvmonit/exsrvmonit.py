@@ -26,7 +26,7 @@ PID = str(os.getpid())
 MIN_PROTO_VERSION = '1.4'
 NUM_RECENT_DATA = 1440
 SERVERS_LIST = [
-    'electrum.dash.siampm.com:50002',
+    'electrum.cintamani.siampm.com:50002',
     'drk.p2pay.com:50002',
 ]
 

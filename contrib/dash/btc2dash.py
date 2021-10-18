@@ -6,12 +6,12 @@ import click
 import imp
 import re
 
-imp.load_module('electrum_dash', *imp.find_module('../../electrum_dash'))
+imp.load_module('electrum_cintamani', *imp.find_module('../../electrum_cintamani'))
 
-from electrum_dash import constants
-from electrum_dash.bitcoin import (b58_address_to_hash160, hash160_to_b58_address,
+from electrum_cintamani import constants
+from electrum_cintamani.bitcoin import (b58_address_to_hash160, hash160_to_b58_address,
                          serialize_privkey, DecodeBase58Check, WIF_SCRIPT_TYPES)
-from electrum_dash.util import inv_dict
+from electrum_cintamani.util import inv_dict
 
 
 ADDR_PATTERN = re.compile(

@@ -5,7 +5,7 @@ mkdir -p dist
 docker run --rm \
     -v $(pwd):/opt \
     -w /opt/ \
-    -t zebralucky/electrum-dash-winebuild:Linux40x \
+    -t zebralucky/electrum-cintamani-winebuild:Linux40x \
     /opt/contrib/build-linux/sdist/build.sh
 
 
@@ -16,7 +16,7 @@ sudo find . -name '*.pot' -delete
 docker run --rm \
     -v $(pwd):/opt \
     -w /opt/contrib/build-linux/appimage \
-    -t zebralucky/electrum-dash-winebuild:AppImage40x ./build.sh
+    -t zebralucky/electrum-cintamani-winebuild:AppImage40x ./build.sh
 
 
 BUILD_DIR=/root/build
@@ -51,9 +51,9 @@ docker run --rm \
     -e PYHOME=$PYHOME \
     -e BUILD_DIR=$BUILD_DIR \
     -v $(pwd):$BUILD_DIR \
-    -v $(pwd):$WINEPREFIX/drive_c/electrum-dash \
+    -v $(pwd):$WINEPREFIX/drive_c/electrum-cintamani \
     -w $BUILD_DIR \
-    -t zebralucky/electrum-dash-winebuild:Wine41x \
+    -t zebralucky/electrum-cintamani-winebuild:Wine41x \
     $BUILD_DIR/contrib/build-wine/build.sh
 
 
@@ -84,7 +84,7 @@ docker run --rm \
     -e PYHOME=$PYHOME \
     -e BUILD_DIR=$BUILD_DIR \
     -v $(pwd):$BUILD_DIR \
-    -v $(pwd):$WINEPREFIX/drive_c/electrum-dash \
+    -v $(pwd):$WINEPREFIX/drive_c/electrum-cintamani \
     -w $BUILD_DIR \
-    -t zebralucky/electrum-dash-winebuild:Wine41x \
+    -t zebralucky/electrum-cintamani-winebuild:Wine41x \
     $BUILD_DIR/contrib/build-wine/build.sh

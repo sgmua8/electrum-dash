@@ -3,19 +3,19 @@ set -ev
 
 cd build
 if [[ -n $TRAVIS_TAG ]]; then
-    BUILD_REPO_URL=https://github.com/akhavr/electrum-dash.git
-    git clone --branch $TRAVIS_TAG $BUILD_REPO_URL electrum-dash
+    BUILD_REPO_URL=https://github.com/akhavr/electrum-cintamani.git
+    git clone --branch $TRAVIS_TAG $BUILD_REPO_URL electrum-cintamani
 else
-    git clone .. electrum-dash
+    git clone .. electrum-cintamani
 fi
 
 
-mkdir -p electrum-dash/dist
+mkdir -p electrum-cintamani/dist
 docker run --rm \
     -v $(pwd):/opt \
-    -w /opt/electrum-dash \
-    -t zebralucky/electrum-dash-winebuild:Linux40x \
-    /opt/electrum-dash/contrib/build-linux/sdist/build.sh
+    -w /opt/electrum-cintamani \
+    -t zebralucky/electrum-cintamani-winebuild:Linux40x \
+    /opt/electrum-cintamani/contrib/build-linux/sdist/build.sh
 
 
 sudo find . -name '*.po' -delete
@@ -24,14 +24,14 @@ sudo find . -name '*.pot' -delete
 
 docker run --rm \
     -v $(pwd):/opt \
-    -w /opt/electrum-dash/contrib/build-linux/appimage \
-    -t zebralucky/electrum-dash-winebuild:AppImage40x ./build.sh
+    -w /opt/electrum-cintamani/contrib/build-linux/appimage \
+    -t zebralucky/electrum-cintamani-winebuild:AppImage40x ./build.sh
 
 
 BUILD_DIR=/root/build
 TOR_PROXY_VERSION=0.4.5.7
 TOR_PROXY_PATH=https://github.com/zebra-lucky/tor-proxy/releases/download
-TOR_DIST=electrum-dash/dist/tor-proxy-setup.exe
+TOR_DIST=electrum-cintamani/dist/tor-proxy-setup.exe
 
 TOR_FILE=${TOR_PROXY_VERSION}/tor-proxy-${TOR_PROXY_VERSION}-win32-setup.exe
 wget -O ${TOR_DIST} ${TOR_PROXY_PATH}/${TOR_FILE}
@@ -60,10 +60,10 @@ docker run --rm \
     -e PYHOME=$PYHOME \
     -e BUILD_DIR=$BUILD_DIR \
     -v $(pwd):$BUILD_DIR \
-    -v $(pwd)/electrum-dash/:$WINEPREFIX/drive_c/electrum-dash \
-    -w $BUILD_DIR/electrum-dash \
-    -t zebralucky/electrum-dash-winebuild:Wine41x \
-    $BUILD_DIR/electrum-dash/contrib/build-wine/build.sh
+    -v $(pwd)/electrum-cintamani/:$WINEPREFIX/drive_c/electrum-cintamani \
+    -w $BUILD_DIR/electrum-cintamani \
+    -t zebralucky/electrum-cintamani-winebuild:Wine41x \
+    $BUILD_DIR/electrum-cintamani/contrib/build-wine/build.sh
 
 
 export WINEARCH=win64
@@ -93,7 +93,7 @@ docker run --rm \
     -e PYHOME=$PYHOME \
     -e BUILD_DIR=$BUILD_DIR \
     -v $(pwd):$BUILD_DIR \
-    -v $(pwd)/electrum-dash/:$WINEPREFIX/drive_c/electrum-dash \
-    -w $BUILD_DIR/electrum-dash \
-    -t zebralucky/electrum-dash-winebuild:Wine41x \
-    $BUILD_DIR/electrum-dash/contrib/build-wine/build.sh
+    -v $(pwd)/electrum-cintamani/:$WINEPREFIX/drive_c/electrum-cintamani \
+    -w $BUILD_DIR/electrum-cintamani \
+    -t zebralucky/electrum-cintamani-winebuild:Wine41x \
+    $BUILD_DIR/electrum-cintamani/contrib/build-wine/build.sh

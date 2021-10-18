@@ -15,7 +15,7 @@ else:
 
 GITHUB_REF = os.environ.get('GITHUB_REF')
 DASH_ELECTRUM_VERSION = os.environ.get('DASH_ELECTRUM_VERSION')
-ICONS_FILE = 'electrum_dash/gui/icons/electrum-dash.icns'
+ICONS_FILE = 'electrum_cintamani/gui/icons/electrum-cintamani.icns'
 
 hiddenimports = []
 hiddenimports += collect_submodules('pkg_resources')  # workaround for https://github.com/pypa/setuptools/issues/1963
@@ -30,42 +30,42 @@ hiddenimports += collect_submodules('websocket')
 hiddenimports.remove('safetlib.qt.pinmatrix')
 
 hiddenimports += [
-    'electrum_dash',
-    'electrum_dash.base_crash_reporter',
-    'electrum_dash.base_wizard',
-    'electrum_dash.plot',
-    'electrum_dash.qrscanner',
-    'electrum_dash.websockets',
-    'electrum_dash.gui.qt',
-    'electrum_dash.gui.qt.qrreader.qtmultimedia.camera_dialog',
+    'electrum_cintamani',
+    'electrum_cintamani.base_crash_reporter',
+    'electrum_cintamani.base_wizard',
+    'electrum_cintamani.plot',
+    'electrum_cintamani.qrscanner',
+    'electrum_cintamani.websockets',
+    'electrum_cintamani.gui.qt',
+    'electrum_cintamani.gui.qt.qrreader.qtmultimedia.camera_dialog',
     'PyQt5.sip',
     'PyQt5.QtPrintSupport',  # needed by Revealer
 
-    'electrum_dash.plugins',
+    'electrum_cintamani.plugins',
 
-    'electrum_dash.plugins.hw_wallet.qt',
+    'electrum_cintamani.plugins.hw_wallet.qt',
 
-    'electrum_dash.plugins.audio_modem.qt',
-    'electrum_dash.plugins.cosigner_pool.qt',
-    'electrum_dash.plugins.digitalbitbox.qt',
-    'electrum_dash.plugins.email_requests.qt',
-    'electrum_dash.plugins.keepkey.qt',
-    'electrum_dash.plugins.revealer.qt',
-    'electrum_dash.plugins.labels.qt',
-    'electrum_dash.plugins.scan_over_gap.qt',
-    'electrum_dash.plugins.trezor.qt',
-    'electrum_dash.plugins.safe_t.client',
-    'electrum_dash.plugins.safe_t.qt',
-    'electrum_dash.plugins.ledger.qt',
-    'electrum_dash.plugins.virtualkeyboard.qt',
+    'electrum_cintamani.plugins.audio_modem.qt',
+    'electrum_cintamani.plugins.cosigner_pool.qt',
+    'electrum_cintamani.plugins.digitalbitbox.qt',
+    'electrum_cintamani.plugins.email_requests.qt',
+    'electrum_cintamani.plugins.keepkey.qt',
+    'electrum_cintamani.plugins.revealer.qt',
+    'electrum_cintamani.plugins.labels.qt',
+    'electrum_cintamani.plugins.scan_over_gap.qt',
+    'electrum_cintamani.plugins.trezor.qt',
+    'electrum_cintamani.plugins.safe_t.client',
+    'electrum_cintamani.plugins.safe_t.qt',
+    'electrum_cintamani.plugins.ledger.qt',
+    'electrum_cintamani.plugins.virtualkeyboard.qt',
 ]
 
 datas = [
-    ('electrum_dash/checkpoints*.*', 'electrum_dash'),
-    ('electrum_dash/*.json', 'electrum_dash'),
-    ('electrum_dash/locale', 'electrum_dash/locale'),
-    ('electrum_dash/wordlist', 'electrum_dash/wordlist'),
-    ('electrum_dash/gui/icons', 'electrum_dash/gui/icons'),
+    ('electrum_cintamani/checkpoints*.*', 'electrum_cintamani'),
+    ('electrum_cintamani/*.json', 'electrum_cintamani'),
+    ('electrum_cintamani/locale', 'electrum_cintamani/locale'),
+    ('electrum_cintamani/wordlist', 'electrum_cintamani/wordlist'),
+    ('electrum_cintamani/gui/icons', 'electrum_cintamani/gui/icons'),
 ]
 
 datas += collect_data_files('trezorlib')
@@ -123,7 +123,7 @@ excludes += [
     'PyQt5.QtWinExtras',
 ]
 
-a = Analysis(['electrum-dash'],
+a = Analysis(['electrum-cintamani'],
              hiddenimports=hiddenimports,
              datas=datas,
              binaries=binaries,
@@ -154,22 +154,22 @@ exe = EXE(pyz,
           strip=False,
           upx=False,
           console=False,
-          icon='electrum_dash/gui/icons/electrum-dash.ico',
-          name=os.path.join('electrum-dash', cmdline_name))
+          icon='electrum_cintamani/gui/icons/electrum-cintamani.ico',
+          name=os.path.join('electrum-cintamani', cmdline_name))
 
 coll = COLLECT(exe,
                a.binaries,
                a.datas,
                strip=False,
                upx=False,
-               name=os.path.join('dist', 'electrum-dash'))
+               name=os.path.join('dist', 'electrum-cintamani'))
 
 app = BUNDLE(coll,
              info_plist={
                 'NSHighResolutionCapable': True,
                 'NSSupportsAutomaticGraphicsSwitching': True,
                 'CFBundleURLTypes': [
-                    {'CFBundleURLName': 'dash', 'CFBundleURLSchemes': ['dash']}
+                    {'CFBundleURLName': 'cintamani', 'CFBundleURLSchemes': ['cintamani']}
                 ],
              },
              name=os.path.join('dist', 'Dash Electrum.app'),

@@ -1,4 +1,4 @@
 #!/bin/bash
 set -ev
 
-docker pull zebralucky/electrum-dash-winebuild:Kivy40x
+docker pull zebralucky/electrum-cintamani-winebuild:Kivy40x

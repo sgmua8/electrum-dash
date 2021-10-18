@@ -1,13 +1,13 @@
-Index: Dash-Electrum-4.0.4.0rc2/electrum_dash/tests/test_bitcoin.py
+Index: Dash-Electrum-4.0.4.0rc2/electrum_cintamani/tests/test_bitcoin.py
 ===================================================================
---- Dash-Electrum-4.0.4.0rc2.orig/electrum_dash/tests/test_bitcoin.py
-+++ Dash-Electrum-4.0.4.0rc2/electrum_dash/tests/test_bitcoin.py
+--- Dash-Electrum-4.0.4.0rc2.orig/electrum_cintamani/tests/test_bitcoin.py
++++ Dash-Electrum-4.0.4.0rc2/electrum_cintamani/tests/test_bitcoin.py
 @@ -1,5 +1,6 @@
  import base64
  import sys
 +import unittest
  
- from electrum_dash.bitcoin import (public_key_to_p2pkh, address_from_private_key,
+ from electrum_cintamani.bitcoin import (public_key_to_p2pkh, address_from_private_key,
                                     is_address, is_private_key,
 @@ -96,6 +97,7 @@ class Test_bitcoin(ElectrumTestCase):
          # we want the unit testing framework to test with libsecp256k1 available.

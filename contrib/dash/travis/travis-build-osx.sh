@@ -5,22 +5,22 @@ export MACOSX_DEPLOYMENT_TARGET=10.13
 
 export PY37BINDIR=/Library/Frameworks/Python.framework/Versions/3.7/bin/
 export PATH=$PATH:$PY37BINDIR
-source ./contrib/dash/travis/electrum_dash_version_env.sh;
+source ./contrib/cintamani/travis/electrum_cintamani_version_env.sh;
 echo osx build version is $DASH_ELECTRUM_VERSION
 
 
 cd build
 if [[ -n $TRAVIS_TAG ]]; then
-    BUILD_REPO_URL=https://github.com/akhavr/electrum-dash.git
-    git clone --branch $TRAVIS_TAG $BUILD_REPO_URL electrum-dash
+    BUILD_REPO_URL=https://github.com/akhavr/electrum-cintamani.git
+    git clone --branch $TRAVIS_TAG $BUILD_REPO_URL electrum-cintamani
     PIP_CMD="sudo python3 -m pip"
 else
-    git clone .. electrum-dash
+    git clone .. electrum-cintamani
     python3 -m virtualenv env
     source env/bin/activate
     PIP_CMD="pip"
 fi
-cd electrum-dash
+cd electrum-cintamani
 
 
 $PIP_CMD install --no-dependencies --no-warn-script-location -I \
@@ -40,12 +40,12 @@ find . -name '*.po' -delete
 find . -name '*.pot' -delete
 
 cp contrib/osx/osx.spec .
-cp contrib/dash/pyi_runtimehook.py .
-cp contrib/dash/pyi_tctl_runtimehook.py .
+cp contrib/cintamani/pyi_runtimehook.py .
+cp contrib/cintamani/pyi_tctl_runtimehook.py .
 
 pyinstaller --clean \
     -y \
-    --name electrum-dash-$DASH_ELECTRUM_VERSION.bin \
+    --name electrum-cintamani-$DASH_ELECTRUM_VERSION.bin \
     osx.spec
 
 sudo hdiutil create -fs HFS+ -volname "Dash Electrum" \

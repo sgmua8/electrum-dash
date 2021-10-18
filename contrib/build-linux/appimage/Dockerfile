@@ -56,7 +56,7 @@ RUN apt-get update -q && \
 ENV PYTHON_VERSION=3.7.10 \
     PY_SHA=f8d82e7572c86ec9d55c8627aae5040124fd2203af400c383c821b980306ee6b \
     LIBSECP_VERSION=dbd41db16a0e91b2566820898a3ab2d7dad4fe00 \
-    APPDIR=/var/build/appimage/electrum-dash.AppDir \
+    APPDIR=/var/build/appimage/electrum-cintamani.AppDir \
     PYTHON_FTP=https://www.python.org/ftp/python
 
 ENV PY_FILE=Python-$PYTHON_VERSION.tar.xz

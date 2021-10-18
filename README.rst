@@ -6,11 +6,11 @@ Dash Electrum - Lightweight Dashpay client
   Licence: MIT Licence
   Author: Thomas Voegtlin
   Language: Python (>= 3.6)
-  Homepage: https://electrum.dash.org/
+  Homepage: https://electrum.cintamani.org/
 
 
-.. image:: https://travis-ci.org/akhavr/electrum-dash.svg?branch=master
-    :target: https://travis-ci.org/akhavr/electrum-dash
+.. image:: https://travis-ci.org/akhavr/electrum-cintamani.svg?branch=master
+    :target: https://travis-ci.org/akhavr/electrum-cintamani
     :alt: Build Status
 
 
@@ -26,9 +26,9 @@ Use PPA setup
 
 On Ubuntu/Linux Mint you can try to install Dash Electrum with next commands::
 
-    sudo add-apt-repository ppa:akhavr/dash-electrum
+    sudo add-apt-repository ppa:akhavr/cintamani-electrum
     sudo apt-get update
-    sudo apt-get install dash-electrum
+    sudo apt-get install cintamani-electrum
 
 
 Use source distribution
@@ -58,7 +58,7 @@ To install precise tested version of pyqt5 run once::
 
 To run Dash Electrum from its root directory, just do::
 
-    ./electrum-dash
+    ./electrum-cintamani
 
 You can also install Dash Electrum on your system, by running this command::
 
@@ -94,8 +94,8 @@ Development version
 
 Check out the code from GitHub::
 
-    git clone https://github.com/akhavr/electrum-dash.git
-    cd electrum-dash
+    git clone https://github.com/akhavr/electrum-cintamani.git
+    cd electrum-cintamani
 
 Run install (this should install dependencies)::
 
@@ -105,7 +105,7 @@ Run install (this should install dependencies)::
 Compile the protobuf description file::
 
     sudo apt-get install protobuf-compiler
-    protoc --proto_path=electrum_dash --python_out=electrum_dash electrum_dash/paymentrequest.proto
+    protoc --proto_path=electrum_cintamani --python_out=electrum_cintamani electrum_cintamani/paymentrequest.proto
 
 Create translations (optional)::
 

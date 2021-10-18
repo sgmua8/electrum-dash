@@ -14,12 +14,12 @@ export BUILD_TIME         := $(shell LC_ALL=C TZ=UTC date +'%H:%M:%S' -d @$(SOUR
 .PHONY: theming prepare prepare-testnet apk apk-testnet release release-testnet clean
 
 theming:
-	$(PYTHON) -m kivy.atlas ../../electrum_dash/gui/kivy/theming/atlas/light 1024 ../../electrum_dash/gui/kivy/theming/light/*.png
+	$(PYTHON) -m kivy.atlas ../../electrum_cintamani/gui/kivy/theming/atlas/light 1024 ../../electrum_cintamani/gui/kivy/theming/light/*.png
 prepare:
 	# running pre build setup
 	@cp buildozer.spec ../../buildozer.spec
-	# copy electrum-dash to main.py
-	@cp ../../electrum-dash ../../main.py
+	# copy electrum-cintamani to main.py
+	@cp ../../electrum-cintamani ../../main.py
 prepare-testnet:
 	@-cd ../..; sed -r "s:^(title =.*):\1 Testnet:" -i buildozer.spec
 	@-cd ../..; sed -r "s:^(package.nam.*):\1_Testnet:" -i buildozer.spec
